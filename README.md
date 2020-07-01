@@ -64,7 +64,7 @@
 
 - 克隆仓库然后进入该仓库：
 ```bash
-git clone https://github.com/tuture-dev/vue-online-shop-frontend.git
+git clone https://github.com/visibleLi/minishop.git
 cd vue-online-shop-frontend
 ```
 
