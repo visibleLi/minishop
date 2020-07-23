@@ -1,48 +1,39 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../components/Home.vue";
-//import Admin from "../pages/Admin.vue";
-import Cart from "../pages/Cart.vue";
-
-import Index from "../pages/admin/Index";
-import New from "../pages/admin/New";
-import Edit from "../pages/admin/Edit";
-import Products from "../pages/admin/Products";
-
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home
+    component: resolve => require(['../components/Home.vue'], resolve),
   },
   {
     path: "/admin",
     name: "Admin",
-    component: Index,
+    component: resolve => require(['../pages/admin/Index'], resolve),
     children: [
       {
         path: "new",
         name: "New",
-        component: New
+        component: resolve => require(['../pages/admin/New'], resolve),
       },
       {
         path: "edit/:id",
         name: "Edit",
-        component: Edit
+        component: resolve => require(['../pages/admin/Edit'], resolve),
       },
       {
         path: "",
         name: "Products",
-        component: Products
+        component: resolve => require(['../pages/admin/Products'], resolve),
       }
     ]
   },
   {
     path: "/cart",
     name: "Cart",
-    component: Cart
+    component: resolve => require(['../pages/Cart.vue'], resolve),
   }
 ];
 
